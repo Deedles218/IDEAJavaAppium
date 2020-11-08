@@ -1,6 +1,4 @@
 package lib.ui.ios;
-
-import io.appium.java_client.AppiumDriver;
 import lib.ui.MyListsPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -9,7 +7,7 @@ public class iOSMyListsPageObject extends MyListsPageObject {
     {
           ARTICLE_BY_TITLE_TPL ="xpath://XCUIElementTypeLink[contains(@name,'{TITLE}')]";
           SWIPE_DELETE_BUTTON = "id:swipe action delete";
-        ARTICLE_BY_DESCRIPTION_TPL = "xpath://XCUIElementTypeLink[contains(@name, '{DESCRIPTION}')]";
+          ARTICLE_BY_DESCRIPTION_TPL = "xpath://XCUIElementTypeLink[contains(@name, '{DESCRIPTION}')]";
     }
     public iOSMyListsPageObject(RemoteWebDriver driver)
     {

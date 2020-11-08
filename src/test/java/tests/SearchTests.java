@@ -25,7 +25,6 @@ public class SearchTests extends CoreTestCase
         SearchPageObject.clickCancelSearch();
         SearchPageObject.waitForCancelButtonToDisappear();
     }
-    //тест ассерт поиска 35
     @Test
     public void testAmountOfNotEmptySearch()
     {
@@ -34,14 +33,12 @@ public class SearchTests extends CoreTestCase
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine(search_line);
         int amount_of_search_results = SearchPageObject.getAmountOfFoundArticles();
-        // убедждаемся что количество элементов не равно нулю
         assertTrue(
                 "We found too few results",
                 amount_of_search_results >0
         );
 
     }
-    //тест ассерт ошибка 36
     @Test
     public void testAmountOfEmptySearch()
     {

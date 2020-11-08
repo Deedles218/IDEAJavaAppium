@@ -1,6 +1,5 @@
 package lib;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,9 +16,6 @@ public class Platform {
     private static final String PLATFORM_ANDROID = "android";
     private static final String PLATFORM_MOBILE_WEB = "mobile_web";
     private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
-
-    //3 video 5 lesson
-    // Приватный конструктор
     private static Platform instance;
     private Platform(){}
     public static Platform getInstance()
@@ -30,7 +26,6 @@ public class Platform {
         return instance;
     }
 
-    //методы определяющие платформу (2 шт)
     public boolean isAndroid()
     {
         return isPlatform(PLATFORM_ANDROID);
@@ -43,7 +38,6 @@ public class Platform {
     {
         return isPlatform(PLATFORM_MOBILE_WEB);
     }
-    //метод отвечающий за выбор драйвера (объединяет все в одном)
     public RemoteWebDriver getDriver() throws Exception
     {
         URL URL= new URL(APPIUM_URL);
@@ -58,8 +52,6 @@ public class Platform {
         }
     }
 
-
-    //теперь разнесем метод с capabilities  на два метода-отдельно для ios и android
     private DesiredCapabilities getAndroidDesiredCapabilities()
     {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -96,14 +88,12 @@ public class Platform {
         return chromeOptions;
     }
 
-
-    //метод который сравнивает нашу платформу с той переменной что приходит ему на вход
     private boolean isPlatform(String my_platform)
     {
         String platform = this.getPlatformVar();
         return my_platform.equals(platform);
     }
-    // метод для получения переменной окружения
+
     public String getPlatformVar()
     {
         return System.getenv("PLATFORM");

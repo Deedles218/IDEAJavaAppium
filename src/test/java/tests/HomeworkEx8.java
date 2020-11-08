@@ -21,7 +21,6 @@ public class HomeworkEx8 extends CoreTestCase
         SearchPageObject.typeSearchLine("Unicorn");
         SearchPageObject.waitForSearchResult("Unicorn");
         int amount_of_search_results = SearchPageObject.getAmountOfFoundArticles();
-        // убедждаемся что количество элементов не равно нулю
         assertTrue(
                 "We found too few results",
                 amount_of_search_results >0);
@@ -54,12 +53,10 @@ public class HomeworkEx8 extends CoreTestCase
             }
         ArticlePageObject.closeArticle();
 
-    //добавляем вторую статью
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Script");
         SearchPageObject.clickByArticleWithSubstring("Programming language");
         ArticlePageObject.waitForTitleElement();
-        //String article_title = ArticlePageObject.getArticleTitle(); // перенесла сверху
         if (Platform.getInstance().isAndroid()) {
         ArticlePageObject.addSecondArticleToMyList(name_of_folder);
         } else {
@@ -73,9 +70,7 @@ public class HomeworkEx8 extends CoreTestCase
         if (Platform.getInstance().isAndroid()) {
         MyListPageObject.openFolderByName(name_of_folder);
         }
-    //метод со свайпом
         MyListPageObject.swipeByArticleToDelete(article_title);
-    //проверка что вторая статья осталась
         MyListPageObject.waitListsElementByDescription(article_title);
 }
 

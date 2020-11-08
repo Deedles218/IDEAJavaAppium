@@ -1,9 +1,7 @@
 package lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-// методы для прохождения первых страниц в приложении
 public class WelcomePageObject extends MainPageObject {
     public WelcomePageObject(RemoteWebDriver driver) {
         super(driver);
@@ -36,7 +34,6 @@ public class WelcomePageObject extends MainPageObject {
     public void clickGetStartedButton() {
         this.waitForElementAndClick(GET_STARTED_BUTTON, "Cannot find and click 'Get started' Button", 10);
     }
-    //функция скипа
     public void clickSkip()
     {
         this.waitForElementAndClick(SKIP,"Cannot found and click Skip button", 5);

@@ -12,7 +12,6 @@ import org.junit.Test;
 import static lib.ui.MyListsPageObject.*;
 
 public class HomeworkEx17 extends CoreTestCase {
-        //тест с сохранением одной статьи
         private static final String name_of_folder = "Learning programming";
         private static final String login="AutomatorQA";
         private static final String password = "Automator2020";
@@ -30,8 +29,7 @@ public class HomeworkEx17 extends CoreTestCase {
 
             ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
             ArticlePageObject.waitForTitleElement();
-            String article_title = ArticlePageObject.getArticleTitle(); //отдельная переменная чтобы в  конце теста проверить название статьи
-
+            String article_title = ArticlePageObject.getArticleTitle();
             if (Platform.getInstance().isAndroid()) {
                 ArticlePageObject.addArticleToMyList(name_of_folder);
             } else {
@@ -64,10 +62,6 @@ public class HomeworkEx17 extends CoreTestCase {
             }
             Thread.sleep(5000);
             ArticlePageObject.closeArticle();
-
-//до этого момента все работает
-
-//добавляем метод для веба
             NavigationUI.openNavigation();
             Thread.sleep(5000);
             NavigationUI.clickMyLists();
@@ -78,13 +72,9 @@ public class HomeworkEx17 extends CoreTestCase {
                 MyListPageObject.openFolderByName(name_of_folder);
             }
             Thread.sleep(5000);
-            //метод со свайпом + появление статьи и проверка того что статья удалилась
             MyListPageObject.swipeByArticleToDelete(article_title);
         }
 
-
-
-        //Ex17
         public void testSaveSecondArticle() throws InterruptedException{
             SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
@@ -97,7 +87,7 @@ public class HomeworkEx17 extends CoreTestCase {
 
              ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
             ArticlePageObject.waitForTitleElement();
-            String article_title = ArticlePageObject.getArticleTitle(); //отдельная переменная чтобы в  конце теста проверить название статьи
+            String article_title = ArticlePageObject.getArticleTitle();
 
             if (Platform.getInstance().isAndroid()) {
                 ArticlePageObject.addArticleToMyList(name_of_folder);
@@ -131,8 +121,6 @@ public class HomeworkEx17 extends CoreTestCase {
             }
             Thread.sleep(5000);
             ArticlePageObject.closeArticle();
-
-            //добавляем вторую статью
             SearchPageObject.initSearchInput();
             SearchPageObject.typeSearchLine("JavaScript");
             if ((Platform.getInstance().isAndroid())){
@@ -162,10 +150,8 @@ public class HomeworkEx17 extends CoreTestCase {
                 MyListPageObject.openFolderByName(name_of_folder);
             }
 
-            //метод со свайпом
             Thread.sleep(5000);
             MyListPageObject.swipeByArticleToDelete(article_title);
-            //проверка что вторая статья осталась
             Thread.sleep(5000);
             MyListPageObject.waitListsElementByDescription(article_title);
 

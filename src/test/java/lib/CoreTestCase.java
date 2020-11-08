@@ -13,7 +13,6 @@ public class CoreTestCase extends TestCase {
     private static final String PLATFORM_IOS = "ios";
     private static final String PLATFORM_ANDROID = "android";
     protected RemoteWebDriver driver;
-    //метод setUP
     @Override
     protected void setUp() throws Exception {
         super.setUp(); //!!
@@ -23,14 +22,11 @@ public class CoreTestCase extends TestCase {
         this.openWikiWebPageForMobileWeb();
     }
 
-    //метод tearDown (выкл драйвер)
     @Override
     protected void tearDown() throws Exception {
         driver.quit();
         super.tearDown();//!!
     }
-
-    //метод для поворота экрана (обернули методы в if)  метод не работает в брауззере
     protected void rotateScreenPortrait() {
         if (driver instanceof AppiumDriver) {
             AppiumDriver driver = (AppiumDriver) this.driver;
@@ -40,8 +36,6 @@ public class CoreTestCase extends TestCase {
         }
 
     }
-
-
     protected void rotateScreenLandscape()
     { if (driver instanceof AppiumDriver){
         AppiumDriver driver = (AppiumDriver) this.driver;
@@ -51,7 +45,6 @@ public class CoreTestCase extends TestCase {
     }
     }
 
-    //метод для бэкграунда
     protected void backgroundApp(int seconds) {
         if (driver instanceof AppiumDriver) {
             AppiumDriver driver = (AppiumDriver) this.driver;
@@ -60,7 +53,6 @@ public class CoreTestCase extends TestCase {
             System.out.println("Method backgroundApp() does nothing for platform " + Platform.getInstance().getPlatformVar());
         }
     }
-    //метод для открытия страницы в браузере для вики
     protected void openWikiWebPageForMobileWeb()
     {
         if(Platform.getInstance().isMw()){
@@ -69,7 +61,6 @@ public class CoreTestCase extends TestCase {
             System.out.println("Method openWikiWebPageForMobileWeb() does nothing for platform " + Platform.getInstance().getPlatformVar());
         }
     }
-    //метод скипающий welcome экраны для айос
     private void skipWelcomePageForIOSApp()
     {
         if (Platform.getInstance().isIOS()) {

@@ -1,6 +1,4 @@
 package lib.ui.factories;
-
-import io.appium.java_client.AppiumDriver;
 import lib.Platform;
 import lib.ui.NavigationUI;
 import lib.ui.android.AndroidNavigationUI;

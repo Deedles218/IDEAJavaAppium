@@ -5,9 +5,8 @@ import lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
-// навигация в приложении
+
 abstract public class NavigationUI extends MainPageObject{
-    // переменная
     protected static String
     MY_LISTS_LINK,
     places_auth_close = "id:places auth close",
@@ -40,11 +39,6 @@ abstract public class NavigationUI extends MainPageObject{
             );
         }
     }
-
-    
-    // метод закрывающий синхронизацию статьей для айос с авторизацией
-    
-    
     public  void closeIOSSync()
     {
         waitForElementAndClick(places_auth_close,"Cannot find close button for sync articles", 5);

@@ -10,7 +10,7 @@ import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class MyListsTests extends CoreTestCase {
-    //тест с сохранением одной статьи
+
     private static final String name_of_folder = "Learning programming";
     private static final String login="AutomatorQA";
     private static final String password = "Automator2020";
@@ -27,8 +27,7 @@ public class MyListsTests extends CoreTestCase {
 
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
-        String article_title = ArticlePageObject.getArticleTitle(); //отдельная переменная чтобы в  конце теста проверить название статьи
-
+        String article_title = ArticlePageObject.getArticleTitle();
         if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.addArticleToMyList(name_of_folder);
         } else {
@@ -56,14 +55,11 @@ if(Platform.getInstance().isMw()) {
         if (Platform.getInstance().isIOS()) {
             SearchPageObject.clickCancelSearch();
         }
-//до этого момента все работает
-
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
         if (Platform.getInstance().isIOS()) {
             NavigationUI.closeIOSSync();
         }
         ArticlePageObject.closeArticle();
-//добавляем метод для веба
         NavigationUI.openNavigation();
         Thread.sleep(5000);
         NavigationUI.clickMyLists();
@@ -74,13 +70,9 @@ if(Platform.getInstance().isMw()) {
             MyListPageObject.openFolderByName(name_of_folder);
         }
         Thread.sleep(5000);
-        //метод со свайпом + появление статьи и проверка того что статья удалилась
         MyListPageObject.swipeByArticleToDelete(article_title);
     }
 
-
-
-    //Ex11
     public void testSaveSecondArticle() {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
@@ -104,8 +96,6 @@ if(Platform.getInstance().isMw()) {
             NavigationUI.closeIOSSync();
         }
         ArticlePageObject.closeArticle();
-
-        //добавляем вторую статью
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
         SearchPageObject.clickByArticleWithSubstring("rogramming language");
@@ -123,9 +113,7 @@ if(Platform.getInstance().isMw()) {
         if (Platform.getInstance().isAndroid()) {
             MyListPageObject.openFolderByName(name_of_folder);
         }
-        //метод со свайпом
         MyListPageObject.swipeByArticleToDelete(article_title);
-        //проверка что вторая статья осталась
         MyListPageObject.waitListsElementByDescription(article_title);
     }
 }
