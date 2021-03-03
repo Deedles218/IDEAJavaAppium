@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="tests.ArticleTests" time="106.455" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="tests.ArticleTests" time="81.623" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre/lib"/>
     <property name="java.vm.version" value="25.261-b12"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/deedles/JavaAppium"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/deedles/Documents/GitHub/IDEAJavaAppium"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="TestSuite"/>
+    <property name="test" value="ArticleTests"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/deedles/JavaAppium"/>
+    <property name="user.dir" value="/Users/deedles/Documents/GitHub/IDEAJavaAppium"/>
     <property name="java.runtime.version" value="1.8.0_261-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre/lib/endorsed"/>
@@ -34,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.15.7"/>
+    <property name="os.version" value="10.16"/>
     <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.6.3_1/libexec/lib/jansi-native"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/deedles"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=TestSuite test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ArticleTests test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="ru"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -65,6 +65,118 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="tests.ArticleTests" name="testCompareArticleTitle" time="52.194"/>
-  <testcase classname="tests.ArticleTests" name="testSwipeArticle" time="54.261"/>
+  <testcase classname="tests.ArticleTests" name="testCompareArticleTitle" time="40.632">
+    <error message="Expected condition failed: Cannot find and click search result with substring bject-oriented programming language/n (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Cannot find and click search result with substring bject-oriented programming language/n (tried for 5 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at lib.ui.MainPageObject.waitForElementPresent(MainPageObject.java:33)
+	at lib.ui.MainPageObject.waitForElementAndClick(MainPageObject.java:42)
+	at lib.ui.SearchPageObject.clickByArticleWithSubstring(SearchPageObject.java:61)
+	at tests.ArticleTests.testCompareArticleTitle_aroundBody0(ArticleTests.java:25)
+	at tests.ArticleTests$AjcClosure1.run(ArticleTests.java:1)
+	at org.aspectj.runtime.reflect.JoinPointImpl.proceed(JoinPointImpl.java:149)
+	at io.qameta.allure.aspects.StepsAspects.step(StepsAspects.java:50)
+	at tests.ArticleTests.testCompareArticleTitle(ArticleTests.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //XCUIElementTypeLink[contains(@name,&apos;bject-oriented programming language&apos;)]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;MacBook-Air-Dasha.local&apos;, ip: &apos;fe80:0:0:0:c7b:f026:e9b8:ea2d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_261&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:895)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:183)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:180)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	... 33 more
+</error>
+    <system-out>Method openWikiWebPageForMobileWeb() does nothing for platform ios
+</system-out>
+    <system-err>мар 03, 2021 10:46:18 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+</system-err>
+  </testcase>
+  <testcase classname="tests.ArticleTests" name="testSwipeArticle" time="40.991">
+    <error message="Expected condition failed: Cannot find and click search result with substring bject-oriented programming language/n (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Cannot find and click search result with substring bject-oriented programming language/n (tried for 5 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at lib.ui.MainPageObject.waitForElementPresent(MainPageObject.java:33)
+	at lib.ui.MainPageObject.waitForElementAndClick(MainPageObject.java:42)
+	at lib.ui.SearchPageObject.clickByArticleWithSubstring(SearchPageObject.java:61)
+	at tests.ArticleTests.testSwipeArticle_aroundBody2(ArticleTests.java:44)
+	at tests.ArticleTests$AjcClosure3.run(ArticleTests.java:1)
+	at org.aspectj.runtime.reflect.JoinPointImpl.proceed(JoinPointImpl.java:149)
+	at io.qameta.allure.aspects.StepsAspects.step(StepsAspects.java:50)
+	at tests.ArticleTests.testSwipeArticle(ArticleTests.java:41)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //XCUIElementTypeLink[contains(@name,&apos;bject-oriented programming language&apos;)]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;MacBook-Air-Dasha.local&apos;, ip: &apos;fe80:0:0:0:c7b:f026:e9b8:ea2d%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;1.8.0_261&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:895)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:183)
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:180)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	... 33 more
+</error>
+    <system-out>Method openWikiWebPageForMobileWeb() does nothing for platform ios
+</system-out>
+    <system-err>мар 03, 2021 10:46:59 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+</system-err>
+  </testcase>
 </testsuite>
