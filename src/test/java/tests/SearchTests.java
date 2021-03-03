@@ -1,13 +1,23 @@
 package tests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
+import javax.xml.bind.ValidationEvent;
+
+@Epic(value = "Search")
 public class SearchTests extends CoreTestCase
 {
     @Test
+    @Features(value ={@Feature(value = "Search"),@Feature(value = "Articles")} )
+    @DisplayName("testSearch")
+    @Description("Search article in wiki")
+    @Step("Start test testSearch")
+    @Severity(value = SeverityLevel.BLOCKER)
     public void testSearch()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -16,6 +26,11 @@ public class SearchTests extends CoreTestCase
         SearchPageObject.waitForSearchResult("bject-oriented programming language");
     }
     @Test
+    @Features(value ={@Feature(value = "Search"),@Feature(value = "Articles")} )
+    @DisplayName("testCancelSearch")
+    @Description("Cancel search")
+    @Step("Start test testCancelSearch")
+    @Severity(value = SeverityLevel.NORMAL)
     public void testCancelSearch() {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
@@ -26,6 +41,11 @@ public class SearchTests extends CoreTestCase
         SearchPageObject.waitForCancelButtonToDisappear();
     }
     @Test
+    @Features(value ={@Feature(value = "Search"),@Feature(value = "Articles")} )
+    @DisplayName("AmountOfNotEmptySearch")
+    //@Description("")
+    @Step("Start test testAmountOfNotEmptySearch")
+    @Severity(value = SeverityLevel.NORMAL)
     public void testAmountOfNotEmptySearch()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -40,6 +60,11 @@ public class SearchTests extends CoreTestCase
 
     }
     @Test
+    @Features(value ={@Feature(value = "Search"),@Feature(value = "Articles")} )
+    @DisplayName("No Result Of Search")
+    //@Description("")
+    @Step("Start test testAmountOfEmptySearch")
+    @Severity(value = SeverityLevel.NORMAL)
     public void testAmountOfEmptySearch()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);

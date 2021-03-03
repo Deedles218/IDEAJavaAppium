@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.*;
@@ -8,7 +10,7 @@ import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
-
+@Epic(value = "MyLists")
 public class MyListsTests extends CoreTestCase {
 
     private static final String name_of_folder = "Learning programming";
@@ -16,6 +18,11 @@ public class MyListsTests extends CoreTestCase {
     private static final String password = "Automator2020";
 
     @Test
+    @Features(value ={@Feature(value = "My Lists"),@Feature(value = "Articles")} )
+    @DisplayName("testSaveFirstArticleToMyList")
+    @Description("Save first article to my list")
+    @Step("Start test testSaveFirstArticleToMyList")
+    @Severity(value = SeverityLevel.CRITICAL)
     public void testSaveFirstArticleToMyList() throws InterruptedException {
 
 
@@ -72,7 +79,12 @@ if(Platform.getInstance().isMw()) {
         Thread.sleep(5000);
         MyListPageObject.swipeByArticleToDelete(article_title);
     }
-
+    @Test
+    @Features(value ={@Feature(value = "My Lists"),@Feature(value = "Articles")} )
+    @DisplayName("testSaveSecondArticle")
+    @Description("Save second article to my list")
+    @Step("Start test testSaveSecondArticle")
+    @Severity(value = SeverityLevel.CRITICAL)
     public void testSaveSecondArticle() {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
