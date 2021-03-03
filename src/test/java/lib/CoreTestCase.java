@@ -9,7 +9,9 @@ import org.junit.Before;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.io.FileOutputStream;
 import java.time.Duration;
+import java.util.Properties;
 
 
 public class CoreTestCase extends TestCase {
@@ -21,6 +23,7 @@ public class CoreTestCase extends TestCase {
     protected void setUp() throws Exception {
         super.setUp(); //!!
         driver = Platform.getInstance().getDriver();
+        this.createAllurePropertyFile(); //добавили созд аллюр файла
         this.rotateScreenPortrait();
         this.skipWelcomePageForIOSApp();
         this.openWikiWebPageForMobileWeb();
@@ -76,6 +79,20 @@ public class CoreTestCase extends TestCase {
             AppiumDriver driver = (AppiumDriver) this.driver;
             WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
             WelcomePageObject.clickSkip();
+        }
+    }
+    // метод для описания окружения в отчетах Allure
+    private void createAllurePropertyFile(){
+        String path=System.getProperty("allure.results.directory");
+        try {
+            Properties props = new Properties();
+            FileOutputStream fos =new FileOutputStream(path+"/environment.properties");
+            props.setProperty("Environment", Platform.getInstance().getPlatformVar());
+            props.store(fos,"See https://github.com/allure-framework/allure-app/wiki/Environment");
+            fos.close();
+        } catch (Exception e) {
+            System.err.println("IO problem when writing allure properties file");
+            e.printStackTrace();
         }
     }
 }

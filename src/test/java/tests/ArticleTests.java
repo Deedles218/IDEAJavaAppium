@@ -25,6 +25,9 @@ public class ArticleTests extends CoreTestCase
         SearchPageObject.clickByArticleWithSubstring("bject-oriented programming language");
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         String article_title = ArticlePageObject.getArticleTitle();
+
+        SearchPageObject.screenshot(SearchPageObject.takeScreenshot("feed"));
+
         assertEquals("We see unexpected title",
                 "Java (programming language)",
                 article_title

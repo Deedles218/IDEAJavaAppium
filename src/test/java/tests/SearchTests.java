@@ -7,8 +7,6 @@ import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
-import javax.xml.bind.ValidationEvent;
-
 @Epic(value = "Search")
 public class SearchTests extends CoreTestCase
 {
@@ -23,7 +21,9 @@ public class SearchTests extends CoreTestCase
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.waitForSearchResult("bject-oriented programming language");
+        SearchPageObject.screenshot(SearchPageObject.takeScreenshot("Search"));
+        //ArticlePageObject.screenshot("Search_article");
+        SearchPageObject.waitForSearchResult("Object-oriented programming language");
     }
     @Test
     @Features(value ={@Feature(value = "Search"),@Feature(value = "Articles")} )
@@ -49,10 +49,11 @@ public class SearchTests extends CoreTestCase
     public void testAmountOfNotEmptySearch()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
-        String search_line = "Linking park discography";
+        String search_line = "Linkin park discography";
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine(search_line);
         int amount_of_search_results = SearchPageObject.getAmountOfFoundArticles();
+        SearchPageObject.screenshot(SearchPageObject.takeScreenshot("Search"));
         assertTrue(
                 "We found too few results",
                 amount_of_search_results >0
