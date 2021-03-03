@@ -68,7 +68,7 @@ public class Platform {
     {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
-        capabilities.setCapability("deviceName", "iPhone 7 Plus");
+        capabilities.setCapability("deviceName", "iPhone 7");
         capabilities.setCapability("platformVersion", "10.3");
         capabilities.setCapability("app", "/Users/deedles/Desktop/JavaAppiumAutomation/apks/Wikipedia.app");
         return capabilities;
